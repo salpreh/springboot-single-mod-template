@@ -1,0 +1,110 @@
+Product:
+  .meta:
+    table-name: products
+  id:
+    type: Long
+    id:
+      type: sequence
+      sequence: product_pk_gen
+  name: String
+  barcode: String
+  price: double
+  assortments:
+    type: Assortment
+    relation:
+      type: one-to-many
+      mapped-by: product
+  categories:
+    type: Category
+    relation:
+      type: many-to-many
+      join-table: product_category
+      join-column: product_id
+      inverse-join-column: category_id
+  providers:
+    type: Provider
+    relation:
+      type: many-to-many
+      join-table: product_provider
+      join-column: product_id
+      inverse-join-column: provider_id
+
+Provider:
+  .meta:
+    table-name: providers
+  id:
+    type: Long
+    id:
+      type: sequence
+      sequence: provider_pk_gen
+  name:
+    type: String
+    column: original_name
+  alias:
+    type: String
+    column: internal_name
+  address: String
+  products:
+    type: Product
+    relation:
+      type: many-to-many
+      mapped-by: providers
+  assortments:
+    type: Assortment
+    relation:
+      type: many-to-many
+      mapped-by: providers
+
+Assortment:
+  id:
+    type: Long
+    id:
+      type: sequence
+      sequence: assortment_pk_gen
+  name: String
+  barcode: String
+  numItems: int
+  product:
+    type: Product
+    relation:
+      type: many-to-one
+      join-column: product_id
+  providers:
+    type: Provider
+    relation:
+      type: many-to-many
+      join-table: assortment_provider
+      join-column: assortment_id
+      inverse-join-column: provider_id
+  orders:
+    type: Order
+    relation:
+      type: many-to-many
+      mapped-by: assortments
+
+Order:
+  .meta:
+    table-name: sale_order
+  id:
+    type: UUID
+    id: auto
+  assortments:
+    type: Assortment
+    relation:
+      type: many-to-many
+      join-table: order_assortment
+      join-column: order_id
+      inverse-join-column: assortment_id
+
+Category:
+  id:
+    type: Long
+    id:
+      type: sequence
+      sequence: category_pk_gen
+  name: String
+  products:
+    type: Product
+    relation:
+      type: many-to-many
+      mapped-by: categories
