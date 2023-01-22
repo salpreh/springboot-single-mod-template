@@ -1,0 +1,8 @@
+{
+  "artifact_id": "my-project",
+  "group_id": "com.salpreh",
+  "version": "0.1.0",
+  "package": "{{group_id}}.{{artifact_id}}",
+  "java_version": "17",
+  "_package_path": "{{ package | replace('.', '/') }}"
+}
