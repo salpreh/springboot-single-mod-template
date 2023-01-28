@@ -1,8 +1,9 @@
 {
-  "artifact_id": "my-project",
+  "project_name": "my-project",
+  "artifact_id": "{{cookiecutter.project_name}}",
   "group_id": "com.salpreh",
   "version": "0.1.0",
-  "package": "{{group_id}}.{{artifact_id}}",
+  "package": "{{cookiecutter.group_id}}.{{cookiecutter.artifact_id | replace('-', '')}}",
   "java_version": "17",
-  "_package_path": "{{ package | replace('.', '/') }}"
+  "__package_path": "{{cookiecutter.package | replace('.', '/')}}"
 }
