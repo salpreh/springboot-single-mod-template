@@ -1,5 +1,38 @@
-# Getting Started
+# {{cookiecutter.artifact_id}}
 
+# Getting Started
+Base template for SpringBoot project with a PosgresDB and REST API.
+
+## Requirements
+`docker` and `docker-compose` to start development postgres DB. Java Development Kit (`jdk`) installed.
+Having Maven `mvn` installed is recomended but not required. You could use maven wrapper scripts with:
+```sh
+./mvnw
+```
+_NOTE_: Make sure `mvnw` has execution permission.
+
+## Dev environment
+Project has a `docker-compose` to start a postgres database container for development. Use docker compose to start development database container with:
+```sh
+docker compose up -d
+```
+
+Complie the project with maven (or maven wrapper if not installed locally)
+```sh
+# If maven wrapper: ./mvnw clean pacakge
+mvn clean package
+```
+
+To run the project you can execute `bin/run.sh` script:
+```sh
+bin/run.sh
+```
+Or use your IDE to run the main class located in `{{cookiecutter.project_name}}/src/main/java/{{cookiecutter.__package_path}}/Application.java`
+
+## Containerize the application
+There is a `Dockerfile` in the root of the project that mounts and runs the compiled application jar. You can use the script `bin/build-docker.sh` to build the docker image or issue the command manually.
+
+## Spring documentation
 ### Reference Documentation
 
 For further reference, please consider the following sections:
