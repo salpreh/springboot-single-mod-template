@@ -1,1 +1,1 @@
-docker build --build-arg PROFILE=dev -t salpreh/base-spring .
+docker build --build-arg PROFILE=dev -t applications/{{cookiecutter.artifact_id}} .
