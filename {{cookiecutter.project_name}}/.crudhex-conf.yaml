@@ -2,17 +2,17 @@ src: src/main/java # General sources for single module apps, also default
 
 domain-models-pkg: {{cookiecutter.package}}.domain.models # domain models package
 domain-commands-pkg: {{cookiecutter.package}}.domain.models.commands # domain commands package
-domain-in-ports-pkg: {{cookiecutter.package}}.domain.ports.application # domain ports (in/driving/application)
-domain-out-ports-pkg: {{cookiecutter.package}}.domain.ports.infrastructure # domain ports (out/driven/infrastructure)
+domain-in-ports-pkg: {{cookiecutter.package}}.domain.ports.driving # domain ports (in/driving/application)
+domain-out-ports-pkg: {{cookiecutter.package}}.domain.ports.driven # domain ports (out/driven/infrastructure)
 domain-use-cases-pkg: {{cookiecutter.package}}.domain.services
 domain-exceptions-pkg: {{cookiecutter.package}}.domain.exceptions
 
-db-adapters-pkg: {{cookiecutter.package}}.adapters.infrastructure.db.adapters # db adapters (port implementations)
-db-models-pkg: {{cookiecutter.package}}.adapters.infrastructure.db.models # db entities package
-db-repositories-pkg: {{cookiecutter.package}}.adapters.infrastructure.db.repositories # db repositories package
-db-mapper-pkg: {{cookiecutter.package}}.adapters.infrastructure.db.mapper # db mapper package
+db-adapters-pkg: {{cookiecutter.package}}.adapters.driven.db.adapters # db adapters (port implementations)
+db-models-pkg: {{cookiecutter.package}}.adapters.driven.db.models # db entities package
+db-repositories-pkg: {{cookiecutter.package}}.adapters.driven.db.repositories # db repositories package
+db-mapper-pkg: {{cookiecutter.package}}.adapters.driven.db.mapper # db mapper package
 
-rest-models-pkg: {{cookiecutter.package}}.application.api.models # rest models package
-rest-controllers-pkg: {{cookiecutter.package}}.application.api.controllers # rest controllers package
-rest-exception-handler-pkg: {{cookiecutter.package}}.application.api.config # rest exception handler package
-rest-mapper-pkg: {{cookiecutter.package}}.application.api.mappers # rest mappers package
+rest-models-pkg: {{cookiecutter.package}}.driving.api.models # rest models package
+rest-controllers-pkg: {{cookiecutter.package}}.driving.api.controllers # rest controllers package
+rest-exception-handler-pkg: {{cookiecutter.package}}.driving.api.config # rest exception handler package
+rest-mapper-pkg: {{cookiecutter.package}}.driving.api.mappers # rest mappers package
